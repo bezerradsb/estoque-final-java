@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html lang="pt-br" xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <!-- Mapa de caracteres unicode -->
+        <meta charset="UTF-8" />
+
+        <!-- Autor da página -->
+        <meta name="author" content="Alex Machado Ribeiro, co-autor" />
+
+        <!-- Indexar página nos motores de busca -->
+        <meta name="robots" content="index, follow" />
+        <meta name="keywords" content="chave, chaves, palavra, palavras, java, spring, mvc, boot, framework, senai, desenvolvedor, desenvolvimento, programa, programação, programador, dev, developer, development, sistema, software, aplicação, app, webapp, web, ee, javaee, crud, banco, dados, database, sql, mysql, servidor, front-end, back-end, front, back, end, tomcat, apache, maven" />
+        <meta name="description" content="Descrição da página feita com Java Spring Framework." />
+
+        <!-- Design responsivo/Mobile First -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- Favicon -->
+        <link href="imagens/Java-logo.png" rel="shortcut icon" type="image/png" />
+
+        <!-- Bootstrap CSS -->
+        <link type="text/css" href="/bootstrap-5.1.3-dist/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- CSS Interno -->
+        <style>
+
+            .container {
+                width: 100%;
+                height: 100vh;
+            }
+            
+            .container h1 {
+            	margin-top:100px;
+            }
+
+            .footer {
+                position: absolute;
+                width: 100%;
+                height: 60px;
+                margin-top: -60px;
+                background-color: #000000;
+                color: #fff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+
+        </style>
+
+        <!-- Título da página -->
+        <title>Cadastrar Produto</title>
+
+    </head>
+    <body>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="/">Produto</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="btn btn-primary" href="/">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="btn btn-light" aria-current="page" href="/cadastrarProduto">Novo Produto</a>
+                  </li>                  
+                </ul>
+              </div>
+            </div>
+        </nav>
+        <!-- Fim do navbar -->
+
+        <!-- Conteúdo da página aqui -->
+        <div class="container">
+            <h1>Formulário de cadastro de produtos</h1>
+            
+            <!-- Formulário de cadastro -->
+            <form class="container" action="" method="POST" enctype="static/imagens">
+	            	<label>Cód Barras do produto:</label><br />
+	            	<input class="form-control" type="text" name="codBarras" placeholder="Digite aqui o Cód Barras do seu Produto"/>
+	            	<label>Descrição do produto:</label><br />
+	            	<input class="form-control" type="text" name="descricao" placeholder="Digite aqui a Descrição do seu Produto"/>
+	            	<label>Marca do produto:</label><br />
+	            	<input class="form-control" type="text" name="marca" placeholder="Digite aqui a Marca do seu Produto"/>
+	            	<label>Modelo do produto:</label><br />
+	            	<input class="form-control" type="text" name="modelo" placeholder="Digite aqui o Modelo do seu Produto"/>
+	            	<label>Valor de Compra do produto:</label><br />
+	            	<input class="form-control" type="number" min="0.00" step="any" max="999999999.99" name="valorC" placeholder="Digite aqui o Valor de Compra do seu Produto"/>
+	            	<label>Valor de Venda do produto:</label><br />
+	            	<input class="form-control" type="text" name="valorV" placeholder="Digite aqui o Valor de Venda do seu Produto"/>
+	            	<label>Peso do produto:</label><br />
+	            	<input class="form-control" type="text" name="peso" placeholder="Digite aqui o Peso do seu Produto"/>
+	            	<label>Fornecedor do produto:</label><br />
+	            	<input class="form-control" type="text" name="fornecedor" placeholder="Digite aqui o Fornecedor do seu Produto"/>
+	            	<label for="file">Choose file to upload</label>
+	            	<input type="file" id="file" name="imagem" multiple>
+	            	<button type="submit" class="btn btn-primary">Cadastrar produto</button>
+	        </form>
+        </div>
+        
+            <!-- Fim do conteúdo da página -->
+        
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="copyright">
+                <span class="text-muted">Todos os direitos reservados.</span>
+            </div>
+        </footer>
+        <!-- Fim do footer -->
+
+        <!-- Bootstrap JS -->
+        <script type="text/javascript" src="/bootstrap-5.1.3-dist/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
