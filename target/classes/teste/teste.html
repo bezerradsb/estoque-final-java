@@ -78,32 +78,19 @@
         <div class="container">
             <h1>Formulário de cadastro de produtos</h1>
             
-            <th:block th:include="mensagemValidacao"></th:block>
             <!-- Formulário de cadastro -->
-            <form class="container" action="" method="POST" enctype="static/imagens">
-	            	<label>Cód Barras do produto:</label><br />
-	            	<input class="form-control" type="text" name="codBarras" placeholder="Digite aqui o Cód Barras do seu Produto"/>
-	            	<label>Descrição do produto:</label><br />
-	            	<input class="form-control" type="text" name="descricao" placeholder="Digite aqui a Descrição do seu Produto"/>
-	            	<label>Marca do produto:</label><br />
-	            	<input class="form-control" type="text" name="marca" placeholder="Digite aqui a Marca do seu Produto"/>
-	            	<label>Modelo do produto:</label><br />
-	            	<input class="form-control" type="text" name="modelo" placeholder="Digite aqui o Modelo do seu Produto"/>
-	            	<label>Valor de Compra do produto:</label><br />
-	            	<input class="form-control" type="number" min="0.00" step="any" max="999999999.99" name="valorC" placeholder="Digite aqui o Valor de Compra do seu Produto"/>
-	            	<label>Valor de Venda do produto:</label><br />
-	            	<input class="form-control" type="text" name="valorV" placeholder="Digite aqui o Valor de Venda do seu Produto"/>
-	            	<label>Peso do produto:</label><br />
-	            	<input class="form-control" type="text" name="peso" placeholder="Digite aqui o Peso do seu Produto"/>
-	            	<label>Fornecedor do produto:</label><br />
-	            	<input class="form-control" type="text" name="fornecedor" placeholder="Digite aqui o Fornecedor do seu Produto"/>
-	            	<label for="file">Choose file to upload</label>
-	            	<input type="file" id="file" name="imagem" multiple>
-	            	<button type="submit" class="btn btn-primary">Cadastrar produto</button>
-	        </form>
-        </div>
         
-            <!-- Fim do conteúdo da página -->
+        <form th:action="@{/users/save}" th:object="${user}" method="post" enctype="multipart/form-data">
+		    ...
+		    <div>
+		     
+		    <label>Photos: </label>
+		    <input type="file" name="image" accept="image/png, image/jpeg" />
+		     
+		    </div>
+		    ...
+		</form>
+        <!-- Fim do conteúdo da página -->
         
         <!-- Footer -->
         <footer class="footer">

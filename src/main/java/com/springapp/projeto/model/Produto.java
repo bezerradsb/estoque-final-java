@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class Produto implements Serializable {
@@ -16,14 +17,23 @@ public class Produto implements Serializable {
 	@Id
 	@GeneratedValue(strategy= GenerationType.AUTO)
 	private long codigoProduto;
+	@NotEmpty
 	private String codBarras;
+	@NotEmpty
 	private String descricao;
+	@NotEmpty
 	private String marca;
+	@NotEmpty
 	private String modelo;
+	@NotEmpty
 	private String valorC;
+	@NotEmpty
 	private double valorV;
+	@NotEmpty
 	private String peso;
+	@NotEmpty
 	private String fornecedor;
+	@NotEmpty
 	private String imagem;
 		
 	// métodos get e set

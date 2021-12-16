@@ -5,7 +5,7 @@
         <meta charset="UTF-8" />
 
         <!-- Autor da página -->
-        <meta name="author" content="Alex Machado Ribeiro, co-autor" />
+        <meta name="author" content="Danilo de Souza Bezerra" />
 
         <!-- Indexar página nos motores de busca -->
         <meta name="robots" content="index, follow" />
@@ -33,30 +33,28 @@
             	margin-top:100px;
             }
 
-            .footer {
-                position: absolute;
+            footer {
                 width: 100%;
                 height: 60px;
                 margin-top: -60px;
-                background-color: #000000;
+                background-color: #16161d;
                 color: #fff;
                 display: flex;
                 align-items: center;
                 justify-content: center;
             }
 
-
         </style>
 
         <!-- Título da página -->
-        <title>Cadastrar Produto</title>
+        <title>Alterar Produto</title>
 
     </head>
     <body>
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <div class="container-fluid">
-              <a class="navbar-brand" href="/">Produto</a>
+              <a class="navbar-brand" href="#">Produto</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -66,8 +64,11 @@
                     <a class="btn btn-primary" href="/">Home</a>
                   </li>
                   <li class="nav-item">
-                    <a class="btn btn-light" aria-current="page" href="/cadastrarProduto">Novo Produto</a>
+                    <a class="btn btn-primary" href="/cadastrarProduto">Cadastrar</a>
                   </li>                  
+                  <li class="nav-item">
+                    <a class="btn btn-light" aria-current="page" href="#">Alterar</a>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -76,44 +77,42 @@
 
         <!-- Conteúdo da página aqui -->
         <div class="container">
-            <h1>Formulário de cadastro de produtos</h1>
+            <h1>Alterar Produto:</h1>
             
-            <th:block th:include="mensagemValidacao"></th:block>
             <!-- Formulário de cadastro -->
-            <form class="container" action="" method="POST" enctype="static/imagens">
+	            <form class="container" action="" method="POST">
 	            	<label>Cód Barras do produto:</label><br />
-	            	<input class="form-control" type="text" name="codBarras" placeholder="Digite aqui o Cód Barras do seu Produto"/>
+	            	<input class="form-control" type="text" th:attr="value = ${produto.codBarras}" name="codBarras" />
 	            	<label>Descrição do produto:</label><br />
-	            	<input class="form-control" type="text" name="descricao" placeholder="Digite aqui a Descrição do seu Produto"/>
+	            	<input class="form-control" type="text" th:attr="value = ${produto.descricao}" name="descricao" />
 	            	<label>Marca do produto:</label><br />
-	            	<input class="form-control" type="text" name="marca" placeholder="Digite aqui a Marca do seu Produto"/>
+	            	<input class="form-control" type="text" th:attr="value = ${produto.marca}" name="marca" />
 	            	<label>Modelo do produto:</label><br />
-	            	<input class="form-control" type="text" name="modelo" placeholder="Digite aqui o Modelo do seu Produto"/>
+	            	<input class="form-control" type="text" th:attr="value = ${produto.modelo}" name="modelo" />
 	            	<label>Valor de Compra do produto:</label><br />
-	            	<input class="form-control" type="number" min="0.00" step="any" max="999999999.99" name="valorC" placeholder="Digite aqui o Valor de Compra do seu Produto"/>
+	            	<input class="form-control" type="text" th:attr="value = ${produto.valorC}" name="valorC" />
 	            	<label>Valor de Venda do produto:</label><br />
-	            	<input class="form-control" type="text" name="valorV" placeholder="Digite aqui o Valor de Venda do seu Produto"/>
+	            	<input class="form-control" type="text" th:attr="value = ${produto.valorV}" name="valorV" />
 	            	<label>Peso do produto:</label><br />
-	            	<input class="form-control" type="text" name="peso" placeholder="Digite aqui o Peso do seu Produto"/>
+	            	<input class="form-control" type="text" th:attr="value = ${produto.peso}" name="peso" />
 	            	<label>Fornecedor do produto:</label><br />
-	            	<input class="form-control" type="text" name="fornecedor" placeholder="Digite aqui o Fornecedor do seu Produto"/>
-	            	<label for="file">Choose file to upload</label>
-	            	<input type="file" id="file" name="imagem" multiple>
-	            	<button type="submit" class="btn btn-primary">Cadastrar produto</button>
-	        </form>
+	            	<input class="form-control" type="text" th:attr="value = ${produto.fornecedor}" name="fornecedor" />
+	            	</br>
+	            	<button type="submit" class="btn btn-primary">Salvar</button>
+	            </form>
         </div>
-        
-            <!-- Fim do conteúdo da página -->
-        
+        <!-- Fim do conteúdo da página -->
+
         <!-- Footer -->
-        <footer class="footer">
+        <footer>
             <div class="copyright">
-                <span class="text-muted">Todos os direitos reservados.</span>
+                <p>Todos os direitos reservados.</p>
             </div>
         </footer>
         <!-- Fim do footer -->
 
         <!-- Bootstrap JS -->
         <script type="text/javascript" src="/bootstrap-5.1.3-dist/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
+        
     </body>
 </html>
