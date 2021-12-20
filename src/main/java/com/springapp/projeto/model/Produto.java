@@ -2,11 +2,13 @@ package com.springapp.projeto.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.NotEmpty;
+
+import org.springframework.data.annotation.Transient;
 
 @Entity
 public class Produto implements Serializable {
@@ -17,24 +19,18 @@ public class Produto implements Serializable {
 	@Id
 	@GeneratedValue(strategy= GenerationType.AUTO)
 	private long codigoProduto;
-	@NotEmpty
 	private String codBarras;
-	@NotEmpty
 	private String descricao;
-	@NotEmpty
 	private String marca;
-	@NotEmpty
 	private String modelo;
-	@NotEmpty
 	private String valorC;
-	@NotEmpty
 	private double valorV;
-	@NotEmpty
 	private String peso;
-	@NotEmpty
 	private String fornecedor;
-	@NotEmpty
 	private String imagem;
+	
+	@Column(length = 45, nullable = true)
+	private String logo;
 		
 	// métodos get e set
 	public long getCodigoProduto() {
@@ -116,4 +112,29 @@ public class Produto implements Serializable {
 	public void setImagem(String imagem) {
 		this.imagem = imagem;
 	}
+
+	public String getLogo() {
+		return logo;
+	}
+
+	public void setLogo(String logo) {
+		this.logo = logo;
+	}
+	
+	@Transient
+	public String getLogoImagePath() {
+		String id = Long.toString(codigoProduto);
+		if (logo == null || id == null) return null;
+		
+		return "./produto-logos/" + id + "/" + logo;
+	}
+	
+	@Transient
+	public String getLogoImagePathAlt() {
+		String id = Long.toString(codigoProduto);
+		if (logo == null || id == null) return null;
+		
+		return "../produto-logos/" + id + "/" + logo;
+	}
+	
 }

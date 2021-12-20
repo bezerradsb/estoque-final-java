@@ -43,6 +43,13 @@
                 align-items: center;
                 justify-content: center;
             }
+            
+            .your-img {
+			    height: 250px; 
+			    width: 250px; 
+			    max-width: 250px; 
+			    max-height: 250px;
+			}
 
         </style>
 
@@ -98,14 +105,37 @@
 	            	<label>Fornecedor do produto:</label><br />
 	            	<input class="form-control" type="text" th:attr="value = ${produto.fornecedor}" name="fornecedor" />
 	            	</br>
+	            	<div class="col-sm-8">
+              			<img class="your-img" id="thumbnail" th:alt="@{${produto.getLogoImagePathAlt}}" th:src="@{${produto.getLogoImagePathAlt}}"/>
+              			</br>
+              			<input type="file" name="fileImage "id="fileImage" accept="image/png, image/jpeg"/>
+                	</div>
+                	</br>
 	            	<button type="submit" class="btn btn-primary">Salvar</button>
 	            </form>
         </div>
         <!-- Fim do conteúdo da página -->
 
-        <!-- Footer -->
-
-        <!-- Fim do footer -->
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script type="text/javascript">
+		$(document).ready(function () {
+			$("#fileImage").change(function () {
+			        showImageThumbnail(this);
+			        
+			    });
+			});
+		
+			function showImageThumbnail(fileInput) {
+			    var file = fileInput.files[0];
+			    var reader = new FileReader();
+			    reader.onload = function (e) {
+			        $("#thumbnail").attr("src", e.target.result);
+			    };
+		
+			    reader.readAsDataURL(file);
+			}
+		</script>  
 
         <!-- Bootstrap JS -->
         <script type="text/javascript" src="/bootstrap-5.1.3-dist/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
